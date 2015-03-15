@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {% if post.header_image %}
+    <img src="{{ url_for('static', filename='img/' ~ post.slug ~ '-header.png') }}" class="header-image">
+  {% endif %}
+{% endblock head %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    {{ post.html|safe }}
+    <img src="{{ url_for('static', filename='img/' ~ post.date ~ '-' ~ post.slug ~ '.png') }}" class="map">
+{% endblock content %}
